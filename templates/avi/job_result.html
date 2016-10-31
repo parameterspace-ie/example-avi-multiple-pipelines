@@ -9,12 +9,22 @@ GAVIP Example AVIs: Multiple Pipelines AVI (Result {{job_id}})
 <link href="{% static 'avi/css/avi.css' %}" rel="stylesheet" type="text/css">
 
 <div class="container-fluid">
-  
+  <!--script src="http://code.highcharts.com/highcharts.js"></script-->
+    <script src="http://code.highcharts.com/3.0.7/highcharts.js"></script>
+    <!--script src="http://code.highcharts.com/modules/exporting.js"></script-->
+    <script src="http://code.highcharts.com/3.0.7/modules/exporting.js"></script>
+
   <div class="row navoffset">
     <div class="col-xs-12">
-      {% include "avi/panel_ulysses_result.html" %}
+        {% if ulysses_result %}
+            {% include "avi/panel_ulysses_result.html" %}
+        {% endif %}
+        {% if gacs_result %}
+            {% include "avi/panel_gacs_result.html" %}
+        {% endif %}
     </div>
   </div>
 </div>
+
 
 {% endblock avi_content %}

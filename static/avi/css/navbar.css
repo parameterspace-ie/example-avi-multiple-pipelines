@@ -55,6 +55,8 @@ nav.sidebar .navbar-collapse, nav.sidebar .container-fluid{
 nav.sidebar{
     height: 100%;
     margin-bottom: 0px;
+    border: 1px #999 solid;
+    background-color: #ddd;;
 }
 
 /*give sidebar 100% width;*/
@@ -72,6 +74,5 @@ nav.sidebar:hover{
 }
 
 nav.sidebar .navbar-nav .open .dropdown-menu>li>a:hover, nav.sidebar .navbar-nav .open .dropdown-menu>li>a:focus {
-    color: #CCC;
     background-color: transparent;
 }

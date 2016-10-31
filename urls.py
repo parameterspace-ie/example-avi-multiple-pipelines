@@ -16,7 +16,7 @@ urlpatterns = patterns(
                        
     url(r'^job_list/',
         include(job_list_urls,
-        namespace='plugin_job_list')),
+        namespace='job_list')),
     # url(r'^job_list/$', views.job_list, name='job_list'),
                        
     url(r'^result/(?P<job_id>[0-9]+)/$', views.job_result, name='job_result'),

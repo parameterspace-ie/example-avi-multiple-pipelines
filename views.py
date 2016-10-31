@@ -16,8 +16,6 @@ from django.shortcuts import get_object_or_404, redirect, render, resolve_url
 from django.views.decorators.http import require_http_methods
 from django.utils import formats
 
-from pipeline import manager
-
 from avi.forms import GacsIgslAnalysisJobForm, NoisySpectraJobForm
 from avi.models import GacsIgslAnalysisJob, NoisySpectraJob
 
@@ -91,7 +89,8 @@ def run_gacsigsl(request):
 
 @require_http_methods(["GET"])
 def job_result(request, job_id):
-    file_path = manager.get_pipeline_status(job_id)['result_path']
+    job = get_object_or_404(GacsIgslAnalysisJob, request_id=job_id)
+    file_path = job.request.result_path
     context = get_default_context()
     with open(file_path, 'r') as out_file:
         context.update(json.load(out_file))
